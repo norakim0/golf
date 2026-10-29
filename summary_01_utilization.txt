@@ -1,0 +1,44 @@
+MODULE 1: UTILIZATION AND DEMAND PATTERN ANALYSIS
+Screen golf venue, 2026-07-18 to 2026-10-04
+
+1. DATA CLEANING
+- Raw rows: 594. Clean rows: 594. No rows were deleted; issues were flagged.
+- Over-capacity rows: 4 (Room 3 with 5 players: 3 rows; Rainbow Hall with 4 players: 1 row).
+- Sessions crossing midnight: 6 (end time moved to next day).
+- Rounds mismatch with players x holes / 18: 4 rows (2 of them are Match/Foursome modes).
+- Non-18-hole sessions: 60.
+- Overlapping bookings within the same room: 0 minutes.
+
+2. ROOM UTILIZATION (denominator = operating minutes, 62,850 min per room)
+Room          Capacity  Games  Utilization
+Rainbow Hall      3       216      22.6%
+Room 1            4       208      25.7%
+Room 2            2        37       4.5%  (includes repair period; separate comparison planned)
+Room 3            4       133      23.1%
+All rooms         -       594      19.0%
+
+3. WEEKDAY x HOUR PATTERN (average across all 4 rooms)
+- Highest: Sunday 16:00 (50.2%), Sunday 10:00 (44.0%), Saturday 16:00 (42.9%).
+- Weekday peak: Monday 17:00 (32.3%), Wednesday 18:00 (30.1%), Friday 17:00-18:00 (about 28%).
+- Lowest: weekday mornings 10:00-12:00 and most hours after 22:00 (under 10% on most days).
+
+4. SOLO vs GROUP
+- Share of games: solo 45.1%, group 54.9%.
+- Share of rounds: solo 26.1%, group 73.9%.
+- Most common group size: 2 players (227 games, 38.2%).
+
+5. PRICE TIER DISTRIBUTION (games)
+- Before 13:00: 222
+- 13:00-16:00: 129
+- After 16:00: 243
+- Room 2 is used mostly before 13:00 (29 of its 37 games).
+
+6. INTERPRETATION CAUTIONS
+(a) Overall utilization of 19% is low. Average is about 7.5 games per day (594 sessions / 79 calendar days) across 4 rooms. Confirm whether this file is the complete record or a partial export, because this changes the conclusions.
+(b) Utilization counts only time occupied by games. Cleaning, setup, and idle gaps are not included.
+(c) 11 sessions start before opening time. They are likely continuations of the previous night's sessions that crossed midnight. Decide how to treat them.
+(d) 17 sessions end after 23:00. Confirm the actual closing time.
+
+7. NEXT STEPS
+- Confirm: (1) whether the data is complete, (2) the actual closing time.
+- Then: Module 2 (time study of 18-hole durations, regression, and waste from early exits and gaps between games).

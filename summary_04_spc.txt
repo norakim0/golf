@@ -1,0 +1,14 @@
+Calendar days: 79 (55 weekdays, 24 weekend days)
+Days with zero sessions: 1
+Mean sessions/day: weekday 5.9, weekend 11.3
+Center line p-bar = 0.051 (30 early exits / 594 sessions)
+Days outside 3-sigma limits: 1
+   2026-09-16 (Wed): 3 of 4 sessions ended early (75%); UCL 38%
+Weekdays: n=55, center 464 min, UCL 1321, LCL 0, mean moving range 322
+   Rule 1 (beyond limits): 0 days; Rule 2 (8 in a row on one side): 0 days
+Weekend days: n=24, center 976 min, UCL 1657, LCL 295, mean moving range 256
+   Rule 1 (beyond limits): 0 days; Rule 2 (8 in a row on one side): 0 days
+
+Reading the charts: a flagged day is a signal to ask 'what was different that day?'
+(holiday, tournament, equipment fault, weather). The data alone cannot name the cause.
+Note: if Rule 2 flags appear, they usually indicate a gradual shift (e.g., seasonal drift), not a one-day special cause.

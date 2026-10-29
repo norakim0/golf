@@ -1,0 +1,48 @@
+All sessions in file                     : 594
+Stroke-play sessions with duration > 0   : 592
+Complete rounds (>= 17 of 18 holes)      : 563  <- used for time study
+Rule: 17/18 holes counted as complete (last hole likely unrecorded).
+         sessions   mean  median   std    p90    max  minutes_per_player
+players                                                                 
+1             262   50.7    48.0  16.2   77.0  102.0                50.7
+2             207   94.9    95.0  16.4  112.4  168.0                47.4
+3              73  138.1   136.0  16.3  159.6  202.0                46.0
+4              18  185.4   187.0  23.5  215.2  224.0                46.4
+5               3  243.0   243.0  17.0  256.6  260.0                48.6
+Model A (players only)
+     term   coef  robust_se      t  p_value  ci95_low  ci95_high
+intercept  5.819      1.688  3.448    0.001     2.504      9.134
+  players 44.596      0.917 48.609    0.000    42.794     46.398
+n=563  R2=0.837  adj R2=0.837  RMSE=16.5 min
+
+Model B (players + game type + price tier + weekend + room)
+Reference levels: Regular game, before 13:00, weekday, Room 1
+         term   coef  robust_se      t  p_value  ci95_low  ci95_high
+    intercept  2.557      1.913  1.337    0.182    -1.200      6.315
+      players 47.245      0.975 48.474    0.000    45.330     49.159
+     GLF_game  4.774      1.494  3.195    0.001     1.839      7.710
+   tier_13_16 -9.124      1.665 -5.480    0.000   -12.395     -5.854
+tier_after_16 -3.890      1.598 -2.434    0.015    -7.030     -0.751
+      weekend -1.447      1.325 -1.093    0.275    -4.049      1.155
+ room_rainbow  0.383      1.476  0.260    0.795    -2.516      3.283
+       room_2 25.410      2.568  9.893    0.000    20.365     30.455
+       room_3  0.080      1.890  0.042    0.966    -3.632      3.792
+n=563  R2=0.868  adj R2=0.866  RMSE=15.0 min
+
+Sensitivity: players coefficient = 47.24 min/player (all rows) vs 47.28 (excluding 4 over-capacity rows).
+Non-group-size terms with p < 0.05: GLF_game, tier_13_16, tier_after_16, room_2
+Caution: coefficients describe association in this venue's data, not proven causes.
+distribution               params    aic  ks_stat  ks_p
+   lognormal   (0.241, 0.0, 47.3) 4343.3    0.052 0.092
+       gamma (16.893, 0.0, 2.885) 4363.7    0.063 0.022
+      normal     (48.735, 12.413) 4437.8    0.091 0.000
+Lowest AIC: lognormal. (KS p-values are optimistic because parameters were fitted on the same data.)
+4a. Early exits (fewer than 17 holes played)
+    30 of 594 sessions (5.1%); mean duration 59.5 min; share of all booked minutes 3.6%
+4b. Seat fill rate while a room is in use (players / capacity, time-weighted)
+    Overall 58.8%.  By room: Rainbow Hall 55.4%, Room 1 53.2%, Room 2 54.8%, Room 3 68.0%
+    Solo sessions in rooms that hold 3-4 players: 234 (39.4% of sessions)
+4c. Gap between sessions (same room, same day)
+    352 gaps; median 71 min; P25 17; P75 175; max 1068
+    Back-to-back (<= 10 min): 76 (21.6%); long idle (> 120 min): 117 (33.2%)
+    Cleaning/reset time is not recorded, so the 10-minute cut-off is an assumption.
